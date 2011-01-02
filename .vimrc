@@ -9,7 +9,7 @@ set expandtab
 set bg=dark
 set number
 filetype plugin indent on
-
+colorscheme desert
 " Shortcut for showing invisibles (tabs and newline)
 nmap <leader>l :set list!<CR>
 
