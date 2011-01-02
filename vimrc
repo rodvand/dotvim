@@ -8,8 +8,12 @@ set shiftwidth=4
 set expandtab
 set bg=dark
 set number
+set vb
 filetype plugin indent on
+syntax on
 colorscheme desert
+" Change leader from \ to ,
+let mapleader=","
 " Shortcut for showing invisibles (tabs and newline)
 nmap <leader>l :set list!<CR>
 
@@ -47,6 +51,9 @@ if has("autocmd")
 
     " Auto-source our .vimrc when writing to it
     autocmd bufwritepost .vimrc source $MYVIMRC
+
+    " Template loading
+    autocmd BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
 
 endif
 
