@@ -9,11 +9,14 @@ set expandtab
 set bg=dark
 set number
 set vb
+
 filetype plugin indent on
 syntax on
 colorscheme desert
+
 " Change leader from \ to ,
 let mapleader=","
+
 " Shortcut for showing invisibles (tabs and newline)
 nmap <leader>l :set list!<CR>
 
@@ -54,7 +57,7 @@ if has("autocmd")
     " Java
     autocmd BufRead,BufNewFile *.java nmap <F5> :!javac % && clear && java "$(echo % \| sed 's/\.java//')" <CR>
     " C
-    autocmd BufRead,BufNewFile *.c nmap <F5> :!clear && gcc %<CR>
+    autocmd BufRead,BufNewFile *.c nmap <F5> :!clear && gcc % -o "$(echo % \| sed 's/\.c/.out/')"<CR>
 
     " Auto-source our .vimrc when writing to it
     autocmd bufwritepost .vimrc source $MYVIMRC

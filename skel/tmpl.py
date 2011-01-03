@@ -1,12 +1,12 @@
-#!/usr/bin/env python # IMPORTANT - specify version
+#!/usr/bin/env python 
 """
-
+%COMMENT%
 """
 
 __author__ = "Martin Rodvand <martin@rodvand.net>"
 
 def main():
-    """Main function"""
+    """%COMMENT%"""
     
 if __name__ == "__main__":
     main()
