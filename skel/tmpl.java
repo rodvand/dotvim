@@ -3,7 +3,7 @@
  *
  */
 
-public class tmpl {
+public class %CLASSNAME% {
 
     public static void main(String args[]) {
 

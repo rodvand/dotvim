@@ -32,6 +32,13 @@ nmap <leader>v :tabedit $MYVIMRC<CR>
 " Set title
 set titlestring=%t%(\ %M%)%(\ (%{expand(\"%:~:.:h\")})%)%(\ %a%)
 
+" Function to load templates
+function! LoadTemplate()
+   silent 0r ~/.vim/skel/tmpl.%:e
+   " Highlight %VAR% with todo colour
+   syn match Todo "%\u\+%" containedIn=ALL 
+endfunction
+
 " Gather all autocommands in one block
 if has("autocmd")
     " Different make settings depending one the filtype
@@ -53,9 +60,16 @@ if has("autocmd")
     autocmd bufwritepost .vimrc source $MYVIMRC
 
     " Template loading
-    autocmd BufNewFile * silent! 0r ~/.vim/skel/tmpl.%:e
+    autocmd BufNewFile * call LoadTemplate()
 
 endif
 
 " Sudo write
 cmap w!! %!sudo tee > /dev/null %
+
+"Jump between %VAR% placeholders in Normal mode with
+" <Ctrl-p>
+nnoremap <c-p> /%\u.\{-1,}%<cr>c/%/e<cr>
+"Jump between %VAR% placeholders in Insert mode with
+" <Ctrl-p>
+inoremap <c-p> <ESC>/%\u.\{-1,}%<cr>c/%/e<cr>
