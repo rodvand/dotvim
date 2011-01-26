@@ -55,7 +55,8 @@ if has("autocmd")
     " Php
     autocmd BufRead,BufNewFile *.php nmap <F5> :!php %<CR>
     " Java
-    autocmd BufRead,BufNewFile *.java nmap <F5> :!javac % && clear && java "$(echo % \| sed 's/\.java//')" <CR>
+    autocmd BufRead,BufNewFile *.java nmap <F5> :!clear && javac % && clear && java "$(echo % \| sed 's/\.java//')" <CR>
+    autocmd BufRead,BufNewFile *.java nmap <F4> :!javac %<CR>
     " C
     autocmd BufRead,BufNewFile *.c nmap <F5> :!clear && gcc % -o "$(echo % \| sed 's/\.c/.out/')"<CR>
     autocmd BufRead,BufNewFile *.c nmap <F6> :!clear && ./"$(echo % \| sed 's/\.c/.out/')"<CR>
