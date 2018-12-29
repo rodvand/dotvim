@@ -5,3 +5,8 @@ Installation:
 Create symlink:
 
     ln -s ~/.vim/vimrc ~/.vimrc
+
+For neovim:
+    
+    mkdir -p ~/.config/nvim
+    ln -s ~/.vim/init.vim ~/.config/nvim/init.vim
